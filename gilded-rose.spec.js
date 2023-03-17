@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { Item, items, updateQuality, Basic, Legendary, Brie, Passes, Conjured } from "./gilded-rose.js";
+import { Item, items, updateQuality, Basic, Legendary, Cheese, Pass, Conjured } from "./gilded-rose.js";
 
 describe("Basic-Items", () => {
   it("reduces quality and sellIn of basic items by 1", () => {
@@ -33,9 +33,9 @@ describe("Basic-Items", () => {
   });
 });
 
-describe("Aged-Brie", () => {
+describe("Cheese", () => {
   it("Aged Brie increases in quality the older it gets", () => {
-    const testItem = new Brie("Aged Brie", 5, 3);
+    const testItem = new Cheese("Aged Brie", 5, 3);
     items.push(testItem);
 
     updateQuality();
@@ -45,7 +45,7 @@ describe("Aged-Brie", () => {
   });
 
   it("Aged Brie increases in quality but not higher than 50", () => {
-    const testItem = new Brie("Aged Brie", -5, 50);
+    const testItem = new Cheese("Aged Brie", -5, 50);
     items.push(testItem);
 
     updateQuality();
@@ -69,7 +69,7 @@ describe("Legendary-Items", () => {
 
 describe("Backstage-Passes", () => {
     it("Backstage passes greater than 10 days", () => {
-    const testItem = new Passes("Backstage passes to a TAFKAL80ETC concert", 12, 20);
+    const testItem = new Pass("Backstage passes to a TAFKAL80ETC concert", 12, 20);
     items.push(testItem);
 
     updateQuality();
@@ -79,7 +79,7 @@ describe("Backstage-Passes", () => {
   });
 
   it("Backstage passes less than 10 days", () => {
-    const testItem = new Passes("Backstage passes to a TAFKAL80ETC concert", 8, 20);
+    const testItem = new Pass("Backstage passes to a TAFKAL80ETC concert", 8, 20);
     items.push(testItem);
 
     updateQuality();
@@ -89,7 +89,7 @@ describe("Backstage-Passes", () => {
   });
 
   it("Backstage passes less than 5 days", () => {
-    const testItem = new Passes("Backstage passes to a TAFKAL80ETC concert", 4, 20);
+    const testItem = new Pass("Backstage passes to a TAFKAL80ETC concert", 4, 20);
     items.push(testItem);
 
     updateQuality();
@@ -99,7 +99,7 @@ describe("Backstage-Passes", () => {
   });
 
   it("Backstage passes less than 0 days", () => {
-    const testItem = new Passes("Backstage passes to a TAFKAL80ETC concert", -1, 20);
+    const testItem = new Pass("Backstage passes to a TAFKAL80ETC concert", -1, 20);
     items.push(testItem);
 
     updateQuality();
